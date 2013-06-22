@@ -15,16 +15,17 @@ When you plan to move, it is necessary to visit some properties. The app gives y
 
 # Install
 
-<code>git clone https://github.com/sylouuu/nodejs-home-search-app.git
-$ npm install</code>
+	git clone https://github.com/sylouuu/nodejs-home-search-app.git
+	$ npm install
 
 # Launch
 
 Go to your directory where the app is.
-<code>node server.js</code>
+
+	node server.js
 
 You can pass an argument to set the app language. Only "fr" and "en" (default) are available.
 
-<code>node server.js fr</code>
+	node server.js fr
 
 Go to http://localhost:2013
