@@ -1,0 +1,66 @@
+<% include tpl/header.html %>
+
+<section class="row">
+	<div class="span12">
+		
+		<form class="form-horizontal" action="/submit" method="post">
+			<input type="hidden" name="id" value="<%= visit.id %>">
+			
+			<fieldset>
+				<legend><%= page.form.legend %></legend>
+				<div class="control-group">
+					<label class="control-label" for="visit_date"><%= page.form.date %></label>
+					<div class="controls">
+						<input type="text" id="visit_date" name="visit_date" value="<%= visit.date %>" required="required" placeholder="<%= page.form.date %>">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="type_appart"><%= page.form.type %></label>
+					<div class="controls">
+						<label class="radio inline">
+							<input type="radio" id="type_appart" name="visit_type" value="1" <% if(visit.type == 1) { %>checked="checked" <% } %>> <%= common.type.appart %>
+						</label>
+						<label class="radio inline">
+							<input type="radio" id="type_house" name="visit_type" value="2" <% if(visit.type == 2) { %>checked="checked" <% } %>> <%= common.type.house %>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="visit_agency"><%= page.form.agency %></label>
+					<div class="controls">
+						<input type="text" id="visit_agency" name="visit_agency" value="<%= visit.agency %>" placeholder="<%= page.form.agency %>">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="visit_city"><%= page.form.city %></label>
+					<div class="controls">
+						<input type="text" id="visit_city" name="visit_city" value="<%= visit.city %>" required="required" placeholder="<%= page.form.city %>">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="visit_url"><%= page.form.url %></label>
+					<div class="controls">
+						<input type="text" id="visit_url" name="visit_url" value="<%= visit.url %>" placeholder="<%= page.form.url %>">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="visit_note"><%= page.form.note %></label>
+					<div class="controls">
+						<input type="number" id="visit_note" name="visit_note" value="<%= visit.note %>" min="0" max="10" required="required" placeholder="<%= page.form.note %>">
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="reset" class="btn"><i class="icon-remove"></i> <%= page.form.reset %></button> 
+					<% if(visit.id == 0) { %>
+						<button type="submit" class="btn btn-primary"><i class="icon-white icon-ok"></i> <%= page.form.add %></button>
+					<% } else { %>
+						<button type="submit" class="btn btn-primary"><i class="icon-white icon-ok"></i> <%= page.form.update %></button>
+					<% } %>
+				</div>
+			</fieldset>
+		</form>
+
+	</div>
+</section>
+
+<% include tpl/footer.html %>

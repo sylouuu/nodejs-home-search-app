@@ -1,0 +1,60 @@
+<% include tpl/header.html %>
+
+<section class="hero-unit">
+	<h1><%= common.title %></h1>
+	<p><%= home.desc %></p>
+	<p><a class="btn btn-large btn-primary" href="/add"><i class="icon-white icon-plus"></i> <%= home.add_btn %></a></p>
+</section>
+
+<section class="row">
+	<div class="span12">
+		<% if(visits.length > 0) { %>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th><%= home.table.date %></th>
+						<th><%= home.table.type %></th>
+						<th><%= home.table.agency %></th>
+						<th><%= home.table.city %></th>
+						<th><%= home.table.url %></th>
+						<th><%= home.table.note %></th>
+						<th><%= home.table.actions %></th>
+					</tr>
+				</thead>
+					<tbody>
+						<% visits.forEach(function(visit, index) { %>
+							<tr>
+								<td><%= visit.date %></td>
+								<td>
+									<% switch(visit.type) {
+											case 1: %> <%= common.type.appart %>
+									<%		break;
+											case 2: %> <%= common.type.house %>
+									<% 		break;
+									} %>
+								</td>
+								<td><%= visit.agency %></td>
+								<td><%= visit.city %></td>
+								<td>
+									<% if(visit.url == "") { %>
+										<%= home.no_link %>
+									<% } else { %>
+										<a href="<%= visit.url %>"><%= home.table.url %></a>
+									<% } %>
+								</td>
+								<td><%= visit.note %></td>
+								<td>
+									<a class="btn" href="/visit/<%= visit._id %>" data-toggle="tooltip" title="<%= home.edit %>"><i class="icon-pencil"></i></a> 
+									<a class="btn btn-danger" href="/remove/<%= visit._id %>" data-toggle="tooltip" title="<%= home.remove %>"><i class="icon-white icon-trash"></i></a>
+								</td>
+							</tr>
+						<% }); %>
+					</tbody>
+			</table>
+		<% } else { %>
+			<div class="alert alert-info"><%= home.no_record %></div>
+		<% } %>
+	</div>
+</section>
+
+<% include tpl/footer.html %>

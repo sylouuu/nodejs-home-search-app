@@ -1,0 +1,12 @@
+{
+	"name": "home-search",
+	"version": "0.1.0",
+	"license" : "MIT",
+	"author": "Syl",
+	"description": "Visitor management of real estate",
+	"dependencies": {
+		"express": "~3.2.6",
+		"ejs": "~0.8.4",
+		"mongoose": "~3.6.11"
+	}
+}
