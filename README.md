@@ -28,4 +28,4 @@ You can pass an argument to set the app language. Only "fr" and "en" (default) a
 
 	node server.js fr
 
-Go to http://localhost:2013
+Go to [http://localhost:2013](http://localhost:2013)
