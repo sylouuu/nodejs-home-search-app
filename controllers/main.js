@@ -83,8 +83,8 @@ module.exports = function(app, models, pages) {
 			my_visit.save(function(err) {
 				if(err) { throw err; }
 				
-				console.log('added visit');
-				
+				console.log('[LOG]	Added visit');
+
 				res.redirect('/');
 			});
 		} else { // Modification
@@ -92,8 +92,6 @@ module.exports = function(app, models, pages) {
 				if(err) {
 					res.redirect('/404');
 				} else {
-					console.log(req.body.id +' existe');
-					
 					var upsertData = my_visit.toObject();
 					
 					delete upsertData._id;
@@ -101,7 +99,7 @@ module.exports = function(app, models, pages) {
 					models.visits.update({ _id: req.body.id }, upsertData, function(err) {
 						if(err) { throw err; }
 						
-						console.log('updated visit: '+ req.body.id);
+						console.log('[LOG]	Updated visit');
 						
 						res.redirect('/');
 					});
