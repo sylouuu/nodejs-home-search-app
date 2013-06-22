@@ -7,8 +7,12 @@ module.exports = function(lang) {
 	var available_languages	= ['fr', 'en'];
 	var default_language	= 'en';
 	
-	if(available_languages.indexOf(lang) === -1) {
-		console.log('[WARN]	"'+ lang +'" is not an available language');
+	if(lang !== undefined) {
+		if(available_languages.indexOf(lang) === -1) {
+			console.log('[WARN]	"'+ lang +'" is not an available language');
+			lang = default_language;
+		}
+	} else {
 		lang = default_language;
 	}
 	
