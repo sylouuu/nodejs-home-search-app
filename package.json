@@ -8,5 +8,9 @@
 		"express": "~3.2.6",
 		"ejs": "~0.8.4",
 		"mongoose": "~3.6.11"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sylouuu/nodejs-home-search-app.git"
+	},
 }
